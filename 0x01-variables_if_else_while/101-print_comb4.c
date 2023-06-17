@@ -1,32 +1,29 @@
 #include <stdio.h>
 
 /**
- * main - Entry point of the program
+ * main - Entry point
  *
- * Description: Prints all possible different combinations of four digits,
- *              separated by ", " and in ascending order.
  * Return: Always 0
  */
 int main(void)
 {
-	int a, b, c, d;
+	int i, j, k, l;
 
-	for (a = 0; a <= 5; a++)
+	for (i = 0; i < 10; i++)
 	{
-		for (b = a + 1; b <= 8; b++)
+		for (j = i + 1; j < 10; j++)
 		{
-			for (c = b + 1; c <= 9; c++)
+			for (k = j + 1; k < 10; k++)
 			{
-				for (d = c + 1; d <= 9; d++)
+				for (l = k + 1; l < 10; l++)
 				{
-					putchar(a + '0');
-					putchar(b + '0');
-					putchar(',');
+					putchar(i + '0');
+					putchar(j + '0');
 					putchar(' ');
-					putchar(c + '0');
-					putchar(d + '0');
+					putchar(k + '0');
+					putchar(l + '0');
 
-					if (!(a == 5 && b == 8 && c == 9 && d == 9))
+					if (!(i == 9 && j == 8 && k == 7 && l == 9))
 					{
 						putchar(',');
 						putchar(' ');
