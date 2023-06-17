@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - Entry point of the program
  *
  * Description: Prints all single-digit numbers of base 10
  *              starting from 0, followed by a new line.
  *
- * Return: Always 0 (Success)
+ * Return: 0 if successful
  */
 int main(void)
 {
@@ -20,6 +20,7 @@ int main(void)
 	putchar('7');
 	putchar('8');
 	putchar('9');
+
 	putchar('\n');
 
 	return (0);
