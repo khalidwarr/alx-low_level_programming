@@ -5,16 +5,15 @@
  *
  * Description: Prints all possible different combinations of four digits,
  *              separated by ", " and in ascending order.
- *
  * Return: Always 0
  */
 int main(void)
 {
 	int a, b, c, d;
 
-	for (a = 0; a <= 9; a++)
+	for (a = 0; a <= 5; a++)
 	{
-		for (b = a + 1; b <= 9; b++)
+		for (b = a + 1; b <= 8; b++)
 		{
 			for (c = b + 1; c <= 9; c++)
 			{
@@ -22,10 +21,12 @@ int main(void)
 				{
 					putchar(a + '0');
 					putchar(b + '0');
+					putchar(',');
+					putchar(' ');
 					putchar(c + '0');
 					putchar(d + '0');
 
-					if (!(a == 9 && b == 8 && c == 7 && d == 6))
+					if (!(a == 5 && b == 8 && c == 9 && d == 9))
 					{
 						putchar(',');
 						putchar(' ');
