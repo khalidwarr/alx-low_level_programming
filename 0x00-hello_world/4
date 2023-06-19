@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Check if the 100-intel file exists
+if [ ! -f "100-intel" ]; then
+  echo "File 100-intel does not exist."
+  exit 1
+fi
+
+# Check the length of the 100-intel file
+file_length=$(wc -l < "100-intel")
+if [ "$file_length" -ne 2 ]; then
+  echo "File 100-intel must be 2 lines long."
+  exit 1
+fi
+
+# Set the CFILE variable and execute the command
+export CFILE="0-main.c"
+source "100-intel"
