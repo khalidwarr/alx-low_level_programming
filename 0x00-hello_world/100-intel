@@ -1,18 +1,25 @@
 #!/bin/bash
 
-# Get the C file name from the $CFILE variable
-c_file=$CFILE
-
-# Check if the C file exists
-if [ ! -f "$c_file" ]; then
-  echo "C file $c_file does not exist."
+# Check if the 100-intel file exists
+if [ ! -f "100-intel" ]; then
+  echo "File 100-intel does not exist."
   exit 1
 fi
 
-# Create the output file name with .s extension
-output_file="${c_file%.*}.s"
+# Check the length of the 100-intel file
+file_length=$(wc -l < "100-intel")
+if [ "$file_length" -ne 2 ]; then
+  echo "File 100-intel must be 2 lines long."
+  exit 1
+fi
 
-# Generate the assembly code using gcc with the appropriate flags
-gcc -S -masm=intel "$c_file" -o "$output_file"
+# Check if the first line of 100-intel contains the correct shebang
+first_line=$(head -n 1 "100-intel")
+if [ "$first_line" != "#!/bin/bash" ]; then
+  echo "First line of 100-intel does not contain #!/bin/bash."
+  exit 1
+fi
 
-echo "Assembly code generated and saved in $output_file."
+# Set the CFILE variable and execute the command
+export CFILE="0-main.c"
+./100-intel
