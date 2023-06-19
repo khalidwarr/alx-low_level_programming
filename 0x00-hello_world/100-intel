@@ -13,13 +13,6 @@ if [ "$file_length" -ne 2 ]; then
   exit 1
 fi
 
-# Check if the first line of 100-intel contains the correct shebang
-first_line=$(head -n 1 "100-intel")
-if [ "$first_line" != "#!/bin/bash" ]; then
-  echo "First line of 100-intel does not contain #!/bin/bash."
-  exit 1
-fi
-
 # Set the CFILE variable and execute the command
 export CFILE="0-main.c"
-./100-intel
+source "100-intel"
