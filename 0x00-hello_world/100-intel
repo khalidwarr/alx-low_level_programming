@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Get the C file name from the $CFILE variable
+c_file=$CFILE
+
+# Check if the C file exists
+if [ ! -f "$c_file" ]; then
+  echo "C file $c_file does not exist."
+  exit 1
+fi
+
+# Create the output file name with .s extension
+output_file="${c_file%.*}.s"
+
+# Generate the assembly code using gcc with the appropriate flags
+gcc -S -masm=intel "$c_file" -o "$output_file"
+
+echo "Assembly code generated and saved in $output_file."
